@@ -41,7 +41,11 @@ int main()
     {
         cin>>a[i];
     }
+    double start, end;
+    start = omp_get_wtime();
     bubble(a,n);
+    end = omp_get_wtime();
+    cout << "Parallel bubble sort time: " << end - start << endl;
     cout<<"\n sorted array is=>";
     for(int i=0;i<n;i++)
     {
