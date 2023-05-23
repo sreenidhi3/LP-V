@@ -4,6 +4,7 @@
 %load_ext nvcc_plugin
 
 %%cu
+
 #include<stdio.h>
 #include<cuda.h>
 
@@ -17,7 +18,8 @@ __global__ void matProd(int *a, int *b, int *c){
   int y=blockIdx.y;
   c[col2*y+x]=0;
   for(int k=0;k<col1;k++){
-      c[col2*y+x]=c[col2*y+k]+a[col1*y+k]+b[col2*k+x];
+      c[col2*y+x]=c[col2*y+x]+a[col1*y+k]*b[col2*k+x];
+      printf("%d \n", c[col2*y+x]);
   }   
 }
 
@@ -42,7 +44,7 @@ int main(){
     cudaMemcpy(c, f, row1*col2*sizeof(int), cudaMemcpyDeviceToHost);
     for(int i=0;i<row1;i++){
         for(int j=0; j<col2; j++){  
-          printf("%d", c[i][j]); 
+          printf("%d ", c[i][j]); 
         }
         printf("\n");
     }
