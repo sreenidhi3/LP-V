@@ -19,7 +19,7 @@ __global__ void matProd(int *a, int *b, int *c){
   c[col2*y+x]=0;
   for(int k=0;k<col1;k++){
       c[col2*y+x]=c[col2*y+x]+a[col1*y+k]*b[col2*k+x];
-      printf("%d \n", c[col2*y+x]);
+      //printf("%d \n", c[col2*y+x]);
   }   
 }
 
