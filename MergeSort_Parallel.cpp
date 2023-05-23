@@ -1,8 +1,3 @@
-
-Sreenidhi Bendre <sreenidhi.bendre_comp2019@pccoer.in>
-May 18, 2023, 12:19 PM (5 days ago)
-to Sneha
-
 #include <iostream>
 using namespace std;
 #include <omp.h>
